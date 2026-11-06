@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         {/* Story */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white border-2 border-[#1A1A1A] p-6 shadow-[4px_4px_0_#1A1A1A]" style={{transform:'rotate(-0.5deg)'}}>
+          <div className="bg-white border-2 border-[#1A1A1A] p-6 shadow-[4px_4px_0_#1A1A1A]" style={{ transform: 'rotate(-0.5deg)' }}>
             <h2 className="font-hand text-2xl font-bold text-[#1A1A1A] mb-3">☕ Cerita Kami</h2>
             <p className="font-patrick text-[#3D3D3D] leading-relaxed">
               Lahir dari kecintaan mendalam terhadap kopi dan makanan, BERSUA hadir untuk menciptakan ruang di mana orang-orang bisa berkumpul, bercengkrama, dan menikmati sajian berkualitas.
@@ -29,7 +29,7 @@ export default function AboutPage() {
               Setiap cangkir kopi yang kami seduh dan setiap hidangan yang kami sajikan dibuat dengan sepenuh hati, menggunakan bahan-bahan pilihan terbaik.
             </p>
           </div>
-          <div className="bg-[#DBEAFE] border-2 border-[#2563EB] p-6" style={{transform:'rotate(0.5deg)'}}>
+          <div className="bg-[#DBEAFE] border-2 border-[#2563EB] p-6" style={{ transform: 'rotate(0.5deg)' }}>
             <h2 className="font-hand text-2xl font-bold text-[#1A1A1A] mb-3">🌱 Filosofi</h2>
             <ul className="space-y-3 font-patrick text-[#3D3D3D]">
               <li className="flex items-start gap-2"><span>✦</span><span>Bahan segar dan lokal untuk kualitas terbaik</span></li>
@@ -45,12 +45,12 @@ export default function AboutPage() {
           <h2 className="font-hand text-3xl font-bold text-[#1A1A1A] mb-6 text-center">Tim Kami</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'Raka', role: 'Head Barista', emoji: '👨‍🍳' },
-              { name: 'Sari', role: 'Chef', emoji: '👩‍🍳' },
-              { name: 'Deni', role: 'Manager', emoji: '👨‍💼' },
-              { name: 'Lina', role: 'Kasir', emoji: '👩‍💼' },
+              { name: 'Alip', role: 'Owner', emoji: '👨‍🍳' },
+              { name: 'Farhan', role: 'Manager Store', emoji: '👩‍🍳' },
+              { name: 'Agung', role: 'Barista', emoji: '👨‍💼' },
+              { name: 'Naksya', role: 'Barista', emoji: '👩‍💼' },
             ].map((m, i) => (
-              <div key={i} className="bg-white border-2 border-[#1A1A1A] p-4 text-center" style={{transform:`rotate(${i%2===0?'-1':'1'}deg)`}}>
+              <div key={i} className="bg-white border-2 border-[#1A1A1A] p-4 text-center" style={{ transform: `rotate(${i % 2 === 0 ? '-1' : '1'}deg)` }}>
                 <div className="text-5xl mb-2">{m.emoji}</div>
                 <p className="font-hand text-lg font-bold">{m.name}</p>
                 <p className="font-patrick text-xs text-[#3D3D3D]">{m.role}</p>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="text-gray-400 text-sm mb-1">🕐 Jam Buka</p>
-              <p>Senin–Minggu<br/>08.00 – 22.00 WIB</p>
+              <p>Senin–Minggu<br />08.00 – 22.00 WIB</p>
             </div>
             <div>
               <p className="text-gray-400 text-sm mb-1">📞 Kontak</p>
