@@ -94,7 +94,7 @@ export default async function HomePage() {
             {/* Stats strip */}
             <div className="flex gap-6 mt-10 pt-8 border-t-2 border-dashed border-[#C49A6C]">
               {[
-                { n: '17', label: 'Menu pilihan' },
+                { n: '18', label: 'Menu pilihan' },
                 { n: '5★', label: 'Rating pelanggan' },
                 { n: '2026', label: 'Didirikan' },
               ].map((s, i) => (

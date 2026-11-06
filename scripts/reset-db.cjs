@@ -122,6 +122,7 @@ function seedMenu() {
     [catIds[3], 'Mie Gulung', 'Mie goreng digulung dengan sosis, disiram saus spesial', 10000, '/images/miegulung.jpeg', 1, 1],
     [catIds[3], "The Cireng's", 'Cireng isi bumbu khas, renyah di luar lembut di dalam', 10000, '/images/thecirengs.jpeg', 1, 0],
     [catIds[3], "Nodle's X Egg", 'Mie instan dengan telur mata sapi', 12000, '/images/nodlesxegg.jpeg', 1, 1],
+    [catIds[3], 'Nasi Goreng Ijo', 'Nasi goreng cabe ijo spesial dengan bumbu khas dan aroma sedap', 14000, '/images/nasigorengijo.jpeg', 1, 1],
     // Roti & Dimsum
     [catIds[4], 'Toast Bread', 'Roti toast hangat dengan topping garlic butter', 10000, '/images/toastbread.jpeg', 1, 1],
     [catIds[4], 'DDimsum', 'Dimsum kukus fresh — tanya promo hari ini ke kasir!', 15000, '/images/ddimsum.jpeg', 1, 0],
