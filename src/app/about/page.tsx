@@ -8,7 +8,7 @@ export default function AboutPage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <div className="inline-block bg-[#1A1A1A] text-white px-4 py-1 font-hand text-sm mb-6 rotate-[-1deg]">
-            EST. 2024
+            EST. 2026
           </div>
           <h1 className="font-hand text-6xl font-bold text-[#1A1A1A] mb-4">
             Tentang <span className="text-[#2563EB]">BERSUA</span>

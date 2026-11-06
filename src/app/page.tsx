@@ -2,16 +2,37 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { formatRupiah } from '@/lib/utils';
+import getDb from '@/lib/db';
+
+export const dynamic = 'force-dynamic';
 
 async function getFeaturedMenu() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/menu?featured=true`, {
-      cache: 'no-store',
-    });
-    if (!res.ok) return [];
-    return res.json();
+    const db = getDb();
+    const { data, error } = await db
+      .from('menu_items')
+      .select('id, name, price, image_url, description')
+      .eq('is_available', 1)
+      .eq('is_featured', 1)
+      .order('id', { ascending: true })
+      .limit(4);
+
+    if (error || !data || data.length === 0) {
+      return [
+        { id: 1, name: 'Echa', price: 12000, image_url: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+        { id: 2, name: 'Acha', price: 10000, image_url: 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
+        { id: 12, name: 'Paket Enjoy', price: 10000, image_url: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400', description: 'Mix snack: sosis, nugget, kentang goreng' },
+        { id: 16, name: 'Toast Bread', price: 10000, image_url: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=400', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
+      ];
+    }
+    return data;
   } catch {
-    return [];
+    return [
+      { id: 1, name: 'Echa', price: 12000, image_url: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+      { id: 2, name: 'Acha', price: 10000, image_url: 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
+      { id: 12, name: 'Paket Enjoy', price: 10000, image_url: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400', description: 'Mix snack: sosis, nugget, kentang goreng' },
+      { id: 16, name: 'Toast Bread', price: 10000, image_url: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=400', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
+    ];
   }
 }
 
@@ -73,9 +94,9 @@ export default async function HomePage() {
             {/* Stats strip */}
             <div className="flex gap-6 mt-10 pt-8 border-t-2 border-dashed border-[#C49A6C]">
               {[
-                { n: '27+', label: 'Menu pilihan' },
+                { n: '17', label: 'Menu pilihan' },
                 { n: '5★', label: 'Rating pelanggan' },
-                { n: '2024', label: 'Didirikan' },
+                { n: '2026', label: 'Didirikan' },
               ].map((s, i) => (
                 <div key={i}>
                   <p className="font-hand text-2xl font-bold text-[#1A1A1A]">{s.n}</p>
@@ -122,7 +143,7 @@ export default async function HomePage() {
               <span className="font-hand text-sm font-bold">#BersuaYuk</span>
             </div>
             <div className="absolute top-6 left-16 bg-[#1A1A1A] text-white px-2 py-1 rotate-3">
-              <span className="font-hand text-xs">est. 2024</span>
+              <span className="font-hand text-xs">est. 2026</span>
             </div>
             <div className="absolute top-2 right-24 md:right-32">
               <span className="font-hand text-xs text-[#8B5E3C] rotate-12 inline-block">↙ favorit!</span>
@@ -144,12 +165,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {(featured.length > 0 ? featured : [
-              { id: 0, name: 'Kopi Susu Bersua', price: 28000, image_url: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400', description: 'Signature gula aren' },
-              { id: 0, name: 'Nasi Ayam Bakar', price: 48000, image_url: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', description: 'Bumbu kecap premium' },
-              { id: 0, name: 'Cheesecake', price: 35000, image_url: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400', description: 'New York style' },
-              { id: 0, name: 'Butterfly Pea Latte', price: 38000, image_url: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400', description: 'Bunga telang biru' },
-            ]).slice(0, 4).map((item: { id: number; name: string; price: number; image_url?: string; description?: string }, i: number) => (
+            {featured.slice(0, 4).map((item: { id: number; name: string; price: number; image_url?: string; description?: string }, i: number) => (
               <Link
                 key={item.id || i}
                 href={item.id ? `/menu/${item.id}` : '/menu'}
@@ -229,7 +245,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-6 text-center">
-            <p className="font-patrick text-xs text-gray-500">© 2024 BERSUA Coffee &amp; Eatery. Dibuat dengan ☕ dan ❤️</p>
+            <p className="font-patrick text-xs text-gray-500">© 2026 BERSUA Coffee &amp; Eatery. Dibuat dengan ☕ dan ❤️</p>
           </div>
         </div>
       </footer>
