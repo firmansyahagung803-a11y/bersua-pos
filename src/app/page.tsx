@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
+import LiveClock from '@/components/LiveClock';
 import { formatRupiah } from '@/lib/utils';
 import getDb from '@/lib/db';
 
@@ -61,8 +62,11 @@ export default async function HomePage() {
 
           {/* Left copy */}
           <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 bg-[#DBEAFE] border-2 border-[#2563EB] px-3 py-1 mb-6 -rotate-1">
-              <span className="font-hand text-[#2563EB] text-sm font-semibold">☕ Coffee &amp; Eatery</span>
+            <div className="flex items-center gap-3 mb-6 flex-wrap">
+              <div className="inline-flex items-center gap-2 bg-[#DBEAFE] border-2 border-[#2563EB] px-3 py-1 -rotate-1">
+                <span className="font-hand text-[#2563EB] text-sm font-semibold">☕ Coffee &amp; Eatery</span>
+              </div>
+              <LiveClock />
             </div>
             <h1 className="font-hand text-6xl md:text-7xl font-bold text-[#1A1A1A] leading-tight mb-4">
               Tempat

@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
+import LiveClock from '@/components/LiveClock';
 import { useCartStore } from '@/store/cart';
 import { formatRupiah } from '@/lib/utils';
 import { Search, ShoppingBag, Plus, Minus, Check } from 'lucide-react';
@@ -75,10 +76,13 @@ export default function MenuPage() {
               <h1 className="font-hand text-5xl font-bold text-[#1A1A1A]">Menu Kami</h1>
               <p className="font-patrick text-[#3D3D3D] mt-1">Pilih yang kamu suka ☕</p>
             </div>
-            <Link href="/cart" className="flex items-center gap-2 btn-primary py-2 px-4">
-              <ShoppingBag className="w-4 h-4" />
-              <span>Keranjang</span>
-            </Link>
+            <div className="flex items-center gap-3 flex-wrap">
+              <LiveClock />
+              <Link href="/cart" className="flex items-center gap-2 btn-primary py-2 px-4">
+                <ShoppingBag className="w-4 h-4" />
+                <span>Keranjang</span>
+              </Link>
+            </div>
           </div>
 
           {/* Search */}

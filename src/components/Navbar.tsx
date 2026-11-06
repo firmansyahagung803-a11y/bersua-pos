@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useCartStore } from '@/store/cart';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import LiveClock from '@/components/LiveClock';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -47,8 +48,12 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right actions */}
+        {/* Live Clock & Right actions */}
         <div className="flex items-center gap-3">
+          <div className="hidden sm:block">
+            <LiveClock showDate={false} />
+          </div>
+
           {/* Cart */}
           <Link href="/cart" className="relative p-2 hover:bg-[#EDE7D9] rounded-sm transition-colors">
             <ShoppingBag className="w-5 h-5 text-[#1A1A1A]" />
@@ -80,6 +85,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-[#F5F0E8] border-t border-[#1A1A1A] px-4 py-4 flex flex-col gap-3">
+          <div className="pb-2 mb-1 border-b border-[#1A1A1A]">
+            <LiveClock className="w-full justify-between" />
+          </div>
           {navLinks.map((link) => (
             <Link
               key={link.href}
