@@ -9,8 +9,7 @@ import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 export default function CartPage() {
   const { items, updateQuantity, removeItem, total, clearCart } = useCartStore();
   const subtotal = total();
-  const tax = Math.round(subtotal * 0.1);
-  const grandTotal = subtotal + tax;
+  const grandTotal = subtotal;
 
   if (items.length === 0) {
     return (
@@ -80,10 +79,6 @@ export default function CartPage() {
             <div className="flex justify-between">
               <span className="text-[#3D3D3D]">Subtotal ({items.reduce((s,i) => s+i.quantity,0)} item)</span>
               <span>{formatRupiah(subtotal)}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-[#3D3D3D]">Pajak (10%)</span>
-              <span>{formatRupiah(tax)}</span>
             </div>
             <div className="flex justify-between pt-2 border-t border-[#EDE7D9]">
               <span className="font-bold font-hand text-base">Total</span>

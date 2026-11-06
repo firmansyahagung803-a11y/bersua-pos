@@ -64,8 +64,8 @@ export async function POST(request: Request) {
       return { ...menuItem, quantity: item.quantity, subtotal: itemSubtotal, notes: item.notes || '' };
     });
 
-    const tax = Math.round(subtotal * 0.1);
-    const total = subtotal + tax;
+    const tax = 0;
+    const total = subtotal;
     const order_number = generateOrderNumber();
 
     // Insert order

@@ -10,8 +10,7 @@ export default function CheckoutPage() {
   const router = useRouter();
   const { items, total, clearCart } = useCartStore();
   const subtotal = total();
-  const tax = Math.round(subtotal * 0.1);
-  const grandTotal = subtotal + tax;
+  const grandTotal = subtotal;
 
   const [form, setForm] = useState({
     customer_name: '',

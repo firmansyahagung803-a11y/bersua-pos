@@ -10,7 +10,7 @@ export default function AdminSettingsPage() {
     email: 'bersua@email.com',
     open_time: '08:00',
     close_time: '22:00',
-    tax_rate: '10',
+    tax_rate: '0',
     currency: 'IDR',
   });
   const [saved, setSaved] = useState(false);

@@ -112,12 +112,6 @@ export default function OrderDetailPage() {
             </div>
           ))}
           <div className="mt-3 space-y-1 font-patrick text-sm">
-            <div className="flex justify-between text-[#3D3D3D]">
-              <span>Subtotal</span><span>{formatRupiah(order.subtotal)}</span>
-            </div>
-            <div className="flex justify-between text-[#3D3D3D]">
-              <span>Pajak (10%)</span><span>{formatRupiah(order.tax)}</span>
-            </div>
             <div className="flex justify-between font-hand text-base font-bold pt-1 border-t border-[#EDE7D9]">
               <span>Total</span><span className="text-[#2563EB]">{formatRupiah(order.total)}</span>
             </div>
