@@ -41,23 +41,39 @@ export default function AboutPage() {
         </div>
 
         {/* Team */}
-        <div className="mb-16">
-          <h2 className="font-hand text-3xl font-bold text-[#1A1A1A] mb-6 text-center">Tim Kami</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: 'Alip', role: 'Owner', emoji: '👨‍🍳' },
-              { name: 'Farhan', role: 'Manager Store', emoji: '👩‍🍳' },
-              { name: 'Agung', role: 'Barista', emoji: '👨‍💼' },
-              { name: 'Naksya', role: 'Barista', emoji: '👩‍💼' },
-            ].map((m, i) => (
-              <div key={i} className="bg-white border-2 border-[#1A1A1A] p-4 text-center" style={{ transform: `rotate(${i % 2 === 0 ? '-1' : '1'}deg)` }}>
-                <div className="text-5xl mb-2">{m.emoji}</div>
-                <p className="font-hand text-lg font-bold">{m.name}</p>
-                <p className="font-patrick text-xs text-[#3D3D3D]">{m.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+<div className="mb-16">
+  <h2 className="font-hand text-3xl font-bold text-[#1A1A1A] mb-6 text-center">
+    Tim Kami
+  </h2>
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {[
+      { name: 'Alip', role: 'Owner', image: '/images/alip.jpeg' },
+      { name: 'Farhan', role: 'Manager Store', image: '/images/farhan.jpeg' },
+      { name: 'Agung', role: 'Barista', image: '/images/agung.jpeg' },
+      { name: 'Naksya', role: 'Barista', image: '/images/naksya.jpeg' },
+    ].map((m, i) => (
+      <div
+        key={i}
+        className="bg-white border-2 border-[#1A1A1A] p-4 text-center"
+        style={{
+          transform: `rotate(${i % 2 === 0 ? '-1' : '1'}deg)`
+        }}
+      >
+        <img
+          src={m.image}
+          alt={m.name}
+          className="w-24 h-24 mx-auto mb-3 rounded-full object-cover border-2 border-[#1A1A1A]"
+        />
+
+        <p className="font-hand text-lg font-bold">{m.name}</p>
+        <p className="font-patrick text-xs text-[#3D3D3D]">
+          {m.role}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Contact */}
         <div className="bg-[#1A1A1A] text-white p-8 text-center">
