@@ -44,7 +44,7 @@ export default function CartPage() {
             <div key={item.id} className="bg-white border-2 border-[#1A1A1A] flex items-center gap-3 p-3">
               <div className="relative w-16 h-16 flex-shrink-0 bg-[#EDE7D9] overflow-hidden border border-[#1A1A1A]">
                 {item.image_url ? (
-                  <Image src={item.image_url} alt={item.name} fill className="object-cover" unoptimized />
+                  <Image src={item.image_url} alt={item.name} fill className="object-contain p-1" unoptimized />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-2xl">☕</div>
                 )}

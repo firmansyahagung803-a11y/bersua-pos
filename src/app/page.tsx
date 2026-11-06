@@ -19,7 +19,7 @@ async function getFeaturedMenu() {
 
     if (error || !data || data.length === 0) {
       return [
-        { id: 1, name: 'Echa', price: 12000, image_url: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+        { id: 1, name: 'Echa', price: 10000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
         { id: 2, name: 'Acha', price: 10000, image_url: 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
         { id: 12, name: 'Paket Enjoy', price: 10000, image_url: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400', description: 'Mix snack: sosis, nugget, kentang goreng' },
         { id: 16, name: 'Toast Bread', price: 10000, image_url: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=400', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
@@ -28,7 +28,7 @@ async function getFeaturedMenu() {
     return data;
   } catch {
     return [
-      { id: 1, name: 'Echa', price: 12000, image_url: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+      { id: 1, name: 'Echa', price: 10000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
       { id: 2, name: 'Acha', price: 10000, image_url: 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
       { id: 12, name: 'Paket Enjoy', price: 10000, image_url: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400', description: 'Mix snack: sosis, nugget, kentang goreng' },
       { id: 16, name: 'Toast Bread', price: 10000, image_url: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=400', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
@@ -173,7 +173,7 @@ export default async function HomePage() {
               >
                 <div className="relative h-32 bg-[#C49A6C]">
                   {item.image_url && (
-                    <Image src={item.image_url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+                    <Image src={item.image_url} alt={item.name} fill className="object-contain p-2 group-hover:scale-105 transition-transform duration-300" unoptimized />
                   )}
                 </div>
                 <div className="p-3">

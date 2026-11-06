@@ -79,7 +79,7 @@ export default function MenuDetailPage() {
         {/* Image */}
         <div className="relative h-64 bg-[#EDE7D9] border-2 border-[#1A1A1A] overflow-hidden mb-6" style={{ transform: 'rotate(-0.5deg)' }}>
           {item.image_url ? (
-            <Image src={item.image_url} alt={item.name} fill className="object-cover" unoptimized />
+            <Image src={item.image_url} alt={item.name} fill className="object-contain p-2" unoptimized />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-8xl">☕</div>
           )}

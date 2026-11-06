@@ -104,7 +104,7 @@ function seedMenu() {
 
   const items = [
     // Coffe
-    [catIds[0], 'Echa', 'Expreso-Macha — perpaduan espresso dan matcha yang unik', 12000, 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400', 1, 1],
+    [catIds[0], 'Echa', 'Expreso-Macha — perpaduan espresso dan matcha yang unik', 10000, './public/images/echa.jpeg', 1, 1],
     [catIds[0], 'Acha', 'Americano Clasic — espresso dengan air dingin, clean & bold', 10000, 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', 1, 1],
     [catIds[0], 'Ella', 'Expreso Latte — espresso dengan susu steamed, smooth', 12000, 'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400', 1, 1],
     // Non-Coffe

@@ -180,7 +180,7 @@ export default function AdminMenuPage() {
             <div key={item.id} className={`bg-white rounded-xl border overflow-hidden ${item.is_available ? 'border-gray-100' : 'border-red-100 opacity-60'}`}>
               <div className="relative h-32 bg-gray-50 overflow-hidden">
                 {item.image_url ? (
-                  <Image src={item.image_url} alt={item.name} fill className="object-cover" unoptimized />
+                  <Image src={item.image_url} alt={item.name} fill className="object-contain p-1" unoptimized />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-4xl">☕</div>
                 )}

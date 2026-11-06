@@ -147,7 +147,7 @@ export default function MenuPage() {
                   <Link href={`/menu/${item.id}`}>
                     <div className="relative h-36 bg-[#EDE7D9] overflow-hidden">
                       {item.image_url ? (
-                        <Image src={item.image_url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+                        <Image src={item.image_url} alt={item.name} fill className="object-contain p-2 group-hover:scale-105 transition-transform duration-300" unoptimized />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-5xl">☕</div>
                       )}

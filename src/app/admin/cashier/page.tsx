@@ -333,7 +333,7 @@ export default function CashierPage() {
                   {/* Image */}
                   <div className="relative h-20 bg-gradient-to-br from-amber-50 to-amber-100 overflow-hidden">
                     {item.image_url ? (
-                      <Image src={item.image_url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-200" unoptimized />
+                      <Image src={item.image_url} alt={item.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform duration-200" unoptimized />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-3xl">☕</div>
                     )}
