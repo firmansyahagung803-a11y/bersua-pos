@@ -12,16 +12,25 @@ export async function GET(request: Request) {
     let query = db
       .from('menu_items')
       .select('*, categories(name, slug, icon)')
-      .eq('is_available', 1);
+      .neq('is_available', 0);
 
     if (category && category !== 'all') {
-      // Filter by category slug via join
-      const { data: cat } = await db
-        .from('categories')
-        .select('id')
-        .eq('slug', category)
-        .single();
-      if (cat) query = query.eq('category_id', cat.id);
+      const isNum = !isNaN(Number(category));
+      let catId: number | null = null;
+      if (isNum) {
+        catId = Number(category);
+      } else {
+        const { data: cat } = await db
+          .from('categories')
+          .select('id')
+          .or(`slug.eq.${category},slug.ilike.${category},name.ilike.${category}`)
+          .limit(1)
+          .maybeSingle();
+        if (cat) catId = cat.id;
+      }
+      if (catId) {
+        query = query.eq('category_id', catId);
+      }
     }
     if (search) {
       query = query.or(`name.ilike.%${search}%,description.ilike.%${search}%`);
