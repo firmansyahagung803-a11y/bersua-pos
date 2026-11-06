@@ -104,27 +104,27 @@ function seedMenu() {
 
   const items = [
     // Coffe
-    [catIds[0], 'Echa', 'Expreso-Macha — perpaduan espresso dan matcha yang unik', 10000, './public/images/echa.jpeg', 1, 1],
-    [catIds[0], 'Acha', 'Americano Clasic — espresso dengan air dingin, clean & bold', 10000, 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400', 1, 1],
-    [catIds[0], 'Ella', 'Expreso Latte — espresso dengan susu steamed, smooth', 12000, 'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400', 1, 1],
+    [catIds[0], 'Echa', 'Expreso-Macha — perpaduan espresso dan matcha yang unik', 10000, '/images/echa.jpg', 1, 1],
+    [catIds[0], 'Acha', 'Americano Clasic — espresso dengan air dingin, clean & bold', 10000, '/images/acha.jpeg', 1, 1],
+    [catIds[0], 'Ella', 'Expreso Latte — espresso dengan susu steamed, smooth', 12000, '/images/ella.jpeg', 1, 1],
     // Non-Coffe
-    [catIds[1], 'Ocha', 'Choklat-Susu — cokelat susu segar yang creamy', 10000, 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=400', 1, 1],
-    [catIds[1], 'Suci', 'Susu-Machiato — susu segar dengan shot machiato', 12000, 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=400', 1, 0],
-    [catIds[1], 'S.Prita', 'Sprit-Yakul — Sprite segar dipadukan yakult', 10000, 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400', 1, 0],
-    [catIds[1], 'Ana.S', 'Fanta-Susu — Fanta dengan susu, viral & segar', 10000, 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400', 1, 0],
-    [catIds[1], 'Okta.S', 'Coklat-Susu — susu cokelat dingin yang menyegarkan', 10000, 'https://images.unsplash.com/photo-1517959105821-eaf2591984ca?w=400', 1, 0],
-    [catIds[1], 'Miss-U', 'Milo-Susu — Milo dengan susu, nostalgia dalam satu gelas', 10000, 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400', 1, 1],
+    [catIds[1], 'Ocha', 'Choklat-Susu — cokelat susu segar yang creamy', 10000, '/images/ocha.jpeg', 1, 1],
+    [catIds[1], 'Suci', 'Susu-Machiato — susu segar dengan shot machiato', 12000, '/images/suci.jpeg', 1, 0],
+    [catIds[1], 'S.Prita', 'Sprit-Yakul — Sprite segar dipadukan yakult', 10000, '/images/s-prita.jpeg', 1, 0],
+    [catIds[1], 'Ana.S', 'Fanta-Susu — Fanta dengan susu, viral & segar', 10000, '/images/ana-s.jpeg', 1, 0],
+    [catIds[1], 'Okta.S', 'Coklat-Susu — susu cokelat dingin yang menyegarkan', 10000, '/images/okta-s.jpeg', 1, 0],
+    [catIds[1], 'Miss-U', 'Milo-Susu — Milo dengan susu, nostalgia dalam satu gelas', 10000, '/images/miss-u.jpeg', 1, 1],
     // Minuman Lain
-    [catIds[2], 'Air Putih Botol', 'Air mineral botol segar', 5000, 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400', 1, 0],
+    [catIds[2], 'Air Putih Botol', 'Air mineral botol segar', 5000, '/images/airputih.jpeg', 1, 0],
     [catIds[2], 'Es Batu', 'Es batu untuk minuman kamu', 2000, 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400', 1, 0],
     // Snack
-    [catIds[3], 'Paket Enjoy', 'Mix snack: sosis, nugget, kentang goreng', 10000, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400', 1, 1],
-    [catIds[3], 'Mie Gulung', 'Mie goreng digulung dengan sosis, disiram saus spesial', 10000, 'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400', 1, 1],
-    [catIds[3], "The Cireng's", 'Cireng isi bumbu khas, renyah di luar lembut di dalam', 10000, 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400', 1, 0],
-    [catIds[3], "Nodle's X Egg", 'Mie instan dengan telur mata sapi', 12000, 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400', 1, 1],
+    [catIds[3], 'Paket Enjoy', 'Mix snack: sosis, nugget, kentang goreng', 10000, '/images/paketenjoy.jpeg', 1, 1],
+    [catIds[3], 'Mie Gulung', 'Mie goreng digulung dengan sosis, disiram saus spesial', 10000, '/images/miegulung.jpeg', 1, 1],
+    [catIds[3], "The Cireng's", 'Cireng isi bumbu khas, renyah di luar lembut di dalam', 10000, '/images/thecirengs.jpeg', 1, 0],
+    [catIds[3], "Nodle's X Egg", 'Mie instan dengan telur mata sapi', 12000, '/images/nodlesxegg.jpeg', 1, 1],
     // Roti & Dimsum
-    [catIds[4], 'Toast Bread', 'Roti toast hangat dengan topping garlic butter', 10000, 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=400', 1, 1],
-    [catIds[4], 'DDimsum', 'Dimsum kukus fresh — tanya promo hari ini ke kasir!', 15000, 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400', 1, 0],
+    [catIds[4], 'Toast Bread', 'Roti toast hangat dengan topping garlic butter', 10000, '/images/toastbread.jpeg', 1, 1],
+    [catIds[4], 'DDimsum', 'Dimsum kukus fresh — tanya promo hari ini ke kasir!', 15000, '/images/ddimsum.jpeg', 1, 0],
   ];
 
   for (const item of items) insertItem.run(...item);
