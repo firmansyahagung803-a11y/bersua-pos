@@ -47,8 +47,8 @@ export default async function HomePage() {
   const featured = await getFeaturedMenu();
 
   const infoCards = [
-    { icon: '📍', title: 'Lokasi', desc: 'Jl. Kopi No. 12\nJakarta Selatan', sub: 'Sen–Min  08.00 – 22.00' },
-    { icon: '☎️', title: 'Kontak', desc: '+62 812 3456 7890', sub: 'bersua@email.com' },
+    { icon: '📍', title: 'Lokasi', desc: 'Vila Gading Harapan 3 Jalan Gading Raya RT 013 RW 012 Kedung Jaya Babelan,', sub: 'Sen–Min  16.00 – 00.00' },
+    { icon: '☎️', title: 'Kontak', desc: '+62 82261871282', sub: 'bersua@email.com' },
     { icon: '🛵', title: 'Order', desc: 'Dine in & Takeaway', sub: 'Order online tersedia' },
   ];
 

@@ -5,11 +5,11 @@ import { Check, Store, Coffee, MapPin, Phone, Clock } from 'lucide-react';
 export default function AdminSettingsPage() {
   const [settings, setSettings] = useState({
     store_name: 'BERSUA Coffee & Eatery',
-    address: 'Jl. Kopi No. 12, Jakarta Selatan',
-    phone: '+62 812 3456 7890',
+    address: 'Vila Gading Harapan 3 Jalan Gading Raya RT 013 RW 012 Kedung Jaya Babelan',
+    phone: '082261871282',
     email: 'bersua@email.com',
-    open_time: '08:00',
-    close_time: '22:00',
+    open_time: '16:00',
+    close_time: '00:00',
     tax_rate: '0',
     currency: 'IDR',
   });

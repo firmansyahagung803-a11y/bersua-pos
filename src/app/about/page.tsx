@@ -65,15 +65,15 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6 font-patrick">
             <div>
               <p className="text-gray-400 text-sm mb-1">📍 Alamat</p>
-              <p>Jl. Kopi No. 12, Jakarta Selatan</p>
+              <p>Vila Gading Harapan 3 Jalan Gading Raya RT 013 RW 012 Kedung Jaya Babelan</p>
             </div>
             <div>
               <p className="text-gray-400 text-sm mb-1">🕐 Jam Buka</p>
-              <p>Senin–Minggu<br />08.00 – 22.00 WIB</p>
+              <p>Senin–Minggu<br />16.00 – 00.00 WIB</p>
             </div>
             <div>
               <p className="text-gray-400 text-sm mb-1">📞 Kontak</p>
-              <p>+62 812 3456 7890</p>
+              <p>+62 822 6187 1282</p>
               <p className="text-[#DBEAFE]">bersua@email.com</p>
             </div>
           </div>
