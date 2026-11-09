@@ -31,11 +31,20 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   try {
     const db = getDb();
     const { id } = await params;
-    const { name, description, price, category_id, image_url, is_available, is_featured } = await request.json();
+    const body = await request.json();
+
+    const updateData: Record<string, unknown> = {};
+    if (body.name !== undefined) updateData.name = body.name;
+    if (body.description !== undefined) updateData.description = body.description;
+    if (body.price !== undefined) updateData.price = Number(body.price);
+    if (body.category_id !== undefined) updateData.category_id = Number(body.category_id);
+    if (body.image_url !== undefined) updateData.image_url = body.image_url;
+    if (body.is_available !== undefined) updateData.is_available = body.is_available;
+    if (body.is_featured !== undefined) updateData.is_featured = body.is_featured;
 
     const { error } = await db
       .from('menu_items')
-      .update({ name, description, price, category_id, image_url, is_available, is_featured })
+      .update(updateData)
       .eq('id', Number(id));
 
     if (error) throw error;
