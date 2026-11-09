@@ -20,7 +20,7 @@ async function getFeaturedMenu() {
 
     if (error || !data || data.length === 0) {
       return [
-        { id: 1, name: 'Echa', price: 10000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+        { id: 1, name: 'Echa', price: 12000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
         { id: 2, name: 'Acha', price: 10000, image_url: '/images/acha.jpeg', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
         { id: 12, name: 'Paket Enjoy', price: 10000, image_url: '/images/paketenjoy.jpeg', description: 'Mix snack: sosis, nugget, kentang goreng' },
         { id: 16, name: 'Toast Bread', price: 10000, image_url: '/images/toastbread.jpeg', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
@@ -29,7 +29,7 @@ async function getFeaturedMenu() {
     return data;
   } catch {
     return [
-      { id: 1, name: 'Echa', price: 10000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
+      { id: 1, name: 'Echa', price: 12000, image_url: '/images/echa.jpg', description: 'Expreso-Macha — perpaduan espresso dan matcha yang unik' },
       { id: 2, name: 'Acha', price: 10000, image_url: '/images/acha.jpeg', description: 'Americano Clasic — espresso dengan air dingin, clean & bold' },
       { id: 12, name: 'Paket Enjoy', price: 10000, image_url: '/images/paketenjoy.jpeg', description: 'Mix snack: sosis, nugget, kentang goreng' },
       { id: 16, name: 'Toast Bread', price: 10000, image_url: '/images/toastbread.jpeg', description: 'Roti toast hangat, renyah dengan topping garlic butter' },
