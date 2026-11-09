@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { formatRupiah } from '@/lib/utils';
 import Image from 'next/image';
-import { Plus, Edit2, Trash2, X, Check, Eye, EyeOff, Image as ImageIcon, Upload, Loader2, Link as LinkIcon } from 'lucide-react';
+import { Plus, Edit2, Trash2, X, Check, Eye, EyeOff, Upload, Loader2 } from 'lucide-react';
 
 interface Category { id: number; name: string; slug: string; icon: string; }
 interface MenuItem {
@@ -78,7 +78,6 @@ export default function AdminMenuPage() {
   // Image upload states
   const [previewUrl, setPreviewUrl] = useState<string>('');
   const [uploadingImage, setUploadingImage] = useState(false);
-  const [showManualUrl, setShowManualUrl] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const refreshData = useCallback(() => {
@@ -121,7 +120,6 @@ export default function AdminMenuPage() {
     setForm({ ...emptyForm });
     setPreviewUrl('');
     setUploadingImage(false);
-    setShowManualUrl(false);
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
@@ -203,7 +201,6 @@ export default function AdminMenuPage() {
       is_featured: item.is_featured,
     });
     setPreviewUrl(item.image_url || '');
-    setShowManualUrl(false);
     setEditId(item.id);
     setShowForm(true);
   };
@@ -298,17 +295,9 @@ export default function AdminMenuPage() {
 
               {/* Upload Foto Galeri (Opsional) */}
               <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-sm font-medium block">Foto Menu <span className="text-xs text-gray-400 font-normal">(Opsional)</span></label>
-                  <button
-                    type="button"
-                    onClick={() => setShowManualUrl(!showManualUrl)}
-                    className="text-xs text-blue-600 hover:underline flex items-center gap-1"
-                  >
-                    <LinkIcon className="w-3 h-3" />
-                    {showManualUrl ? 'Sembunyikan URL manual' : 'Gunakan URL teks'}
-                  </button>
-                </div>
+                <label className="text-sm font-medium block mb-1.5">
+                  Tambahkan File Foto <span className="text-xs text-gray-400 font-normal">(Opsional - Ambil dari Galeri)</span>
+                </label>
 
                 {/* Input file tersembunyi yang menerima foto dari galeri/kamera */}
                 <input
@@ -336,9 +325,9 @@ export default function AdminMenuPage() {
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-gray-700 truncate">Foto Menu Terpilih</p>
+                      <p className="text-xs font-semibold text-gray-700 truncate">File Foto Terpilih</p>
                       <p className="text-xs text-gray-400 mt-0.5">
-                        {uploadingImage ? 'Sedang mengunggah...' : 'Foto siap disimpan'}
+                        {uploadingImage ? 'Sedang mengunggah...' : 'Foto siap disimpan bersama menu'}
                       </p>
                       <div className="flex items-center gap-2 mt-2">
                         <button
@@ -347,7 +336,7 @@ export default function AdminMenuPage() {
                           disabled={uploadingImage}
                           className="px-2.5 py-1 text-xs font-medium bg-white border border-gray-200 hover:border-blue-500 hover:text-blue-600 rounded-md transition-colors flex items-center gap-1 disabled:opacity-50"
                         >
-                          <Upload className="w-3 h-3" /> Ganti Foto
+                          <Upload className="w-3 h-3" /> Ganti File
                         </button>
                         <button
                           type="button"
@@ -355,7 +344,7 @@ export default function AdminMenuPage() {
                           disabled={uploadingImage}
                           className="px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-md transition-colors flex items-center gap-1 disabled:opacity-50"
                         >
-                          <Trash2 className="w-3 h-3" /> Hapus
+                          <Trash2 className="w-3 h-3" /> Hapus File
                         </button>
                       </div>
                     </div>
@@ -370,37 +359,20 @@ export default function AdminMenuPage() {
                     {uploadingImage ? (
                       <div className="flex items-center gap-2 text-sm text-[#2563EB] font-medium py-2">
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        Mengunggah foto...
+                        Mengunggah file foto...
                       </div>
                     ) : (
                       <>
                         <div className="w-10 h-10 rounded-full bg-blue-100/80 flex items-center justify-center text-[#2563EB]">
-                          <ImageIcon className="w-5 h-5" />
+                          <Upload className="w-5 h-5" />
                         </div>
                         <div className="text-center">
-                          <span className="text-sm font-semibold block">Pilih Foto dari Galeri</span>
-                          <span className="text-xs text-gray-400">Ketuk untuk mengambil foto dari galeri / kamera HP atau laptop</span>
+                          <span className="text-sm font-semibold block text-[#1A1A1A]">+ Tambahkan File dari Galeri</span>
+                          <span className="text-xs text-gray-400">Pilih langsung foto produk dari galeri HP atau komputer</span>
                         </div>
                       </>
                     )}
                   </button>
-                )}
-
-                {/* Input manual URL (opsional jika toggle diaktifkan) */}
-                {showManualUrl && (
-                  <div className="mt-2.5">
-                    <input
-                      type="text"
-                      value={form.image_url}
-                      onChange={e => {
-                        const val = e.target.value;
-                        setForm(f => ({ ...f, image_url: val }));
-                        setPreviewUrl(val);
-                      }}
-                      placeholder="Masukkan URL foto atau path (/images/...)"
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2563EB]"
-                    />
-                  </div>
                 )}
               </div>
 
