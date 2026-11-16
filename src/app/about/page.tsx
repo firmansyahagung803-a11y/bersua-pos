@@ -1,3 +1,4 @@
+'use client';
 import Navbar from '@/components/Navbar';
 
 export default function AboutPage() {
@@ -63,7 +64,10 @@ export default function AboutPage() {
         <img
           src={m.image}
           alt={m.name}
-          className="w-24 h-24 mx-auto mb-3 rounded-full object-cover border-2 border-[#1A1A1A]"
+          className="w-24 h-24 mx-auto mb-3 rounded-full object-cover border-2 border-[#1A1A1A] bg-[#EDE7D9]"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop';
+          }}
         />
 
         <p className="font-hand text-lg font-bold">{m.name}</p>

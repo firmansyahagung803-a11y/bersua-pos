@@ -1,19 +1,12 @@
 import { NextResponse } from 'next/server';
-import getDb from '@/lib/db';
+import { getExpenseById, updateExpense, deleteExpense } from '@/backend/services/finance.service';
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const db = getDb();
     const { id } = await params;
-
-    const { data, error } = await db
-      .from('expenses')
-      .select('*')
-      .eq('id', Number(id))
-      .single();
-
-    if (error || !data) return NextResponse.json({ error: 'Tidak ditemukan' }, { status: 404 });
-    return NextResponse.json(data);
+    const expense = await getExpenseById(Number(id));
+    if (!expense) return NextResponse.json({ error: 'Tidak ditemukan' }, { status: 404 });
+    return NextResponse.json(expense);
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: 'Error' }, { status: 500 });
@@ -22,16 +15,9 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const db = getDb();
     const { id } = await params;
-    const { description, amount, category, date, notes } = await request.json();
-
-    const { error } = await db
-      .from('expenses')
-      .update({ description, amount, category, date, notes: notes || '' })
-      .eq('id', Number(id));
-
-    if (error) throw error;
+    const body = await request.json();
+    await updateExpense(Number(id), body);
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Error';
@@ -41,15 +27,8 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const db = getDb();
     const { id } = await params;
-
-    const { error } = await db
-      .from('expenses')
-      .delete()
-      .eq('id', Number(id));
-
-    if (error) throw error;
+    await deleteExpense(Number(id));
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error(err);
