@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☕ BERSUA Coffee & Eatery POS Monorepo
 
-## Getting Started
+Sistem Point of Sale (POS) dan Manajemen Restoran / Kafe BERSUA berbasis arsitektur terpisah antara **Backend** dan **Frontend**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🏗️ Struktur Arsitektur
+
+```
+bersua-app/
+│
+├── 📂 backend/               # Server API Mandiri (Express.js & Supabase)
+│   ├── src/
+│   │   ├── routes/          # Endpoint API Express (Auth, Menu, Orders, Finance, Stats, dll)
+│   │   ├── services/        # Logika Bisnis & Query Database Supabase
+│   │   ├── db.ts            # Supabase Client Singleton
+│   │   ├── types.ts         # Data Model & Tipe TypeScript
+│   │   ├── utils.ts         # Helper Waktu WIB & Generator Nomor Order
+│   │   └── server.ts        # Entry point server Express (Port 5000)
+│   ├── .env.example
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── README.md
+│
+└── 📂 frontend/              # Client Application Mandiri (Next.js 16)
+    ├── public/              # Gambar Menu & Aset Statis
+    │   └── images/
+    ├── src/
+    │   ├── app/             # Halaman Web (Home, Menu, Admin, Cart, Checkout, Order, dll)
+    │   ├── components/      # Komponen UI (Navbar, LiveClock)
+    │   ├── store/           # Global State Zustand (Keranjang Belanja)
+    │   └── utils/           # Helper Format Rupiah & Format Tanggal WIB
+    ├── .env.local
+    ├── next.config.ts       # Reverse proxy otomatis ke Backend (:5000)
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── tsconfig.json
+    └── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Panduan Menjalankan Aplikasi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Menjalankan Backend API Server (Port 5000)
+```bash
+# Dari root project:
+npm run dev:backend
 
-## Learn More
+# Atau langsung masuk ke folder backend:
+cd backend
+npm install
+npm run dev
+```
+Backend akan aktif di `http://localhost:5000`.
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Menjalankan Frontend Next.js (Port 3000)
+```bash
+# Dari root project:
+npm run dev:frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Atau langsung masuk ke folder frontend:
+cd frontend
+npm run dev
+```
+Frontend akan aktif di `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🗄️ Database
+- Database menggunakan **Supabase PostgreSQL**.
+- Data gambar menu tersimpan di `frontend/public/images/` dan Supabase Storage bucket `menu-images`.
